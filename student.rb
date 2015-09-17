@@ -108,15 +108,29 @@ class Student
 
 
   puts "------演示retry----"
-  c = 'a'
-  for i in 1..4
-    if i == 2 and c == 'a' then
-      c = 'b'
-      redo
-    end
-    puts i,c," "
+  n = 0
+  begin
+    puts 'Trying to do something'
+    raise 'oops'
+  rescue => ex
+    puts ex
+    n += 1
+    retry if n < 3
   end
+  puts "Ok, I give up"
 
+
+  puts "------演示retry 2----"
+  x = 2
+  begin
+    printf "current x:%d\n",x
+    if x < 3 then
+      raise  'x<3 not used'
+    end
+  rescue => ex
+    puts ex
+    (x += 3;retry) if x < 3
+  end
 
 
   exit
