@@ -35,38 +35,24 @@ class ForTest
       printf "x:%s\n", x
   end
 
-  exit;
-
-  puts '-------for next------------------'
-  dosth = dosth2 = false
+  puts '-------for break------------------'
   for x in 1..5
-    for y in 1..5
-      if x == 2 and y == 4 then
-        next
-      end
-      if x == 4 and y == 4 then
+      if x == 4 then
         break
       end
-      printf "[%s:%s]", x, y
-      if x == 5 and y == 4 and !dosth then
-        dosth = true
-        redo
-      end
-    end
-    puts ''
+      printf "x:%s\n", x
   end
 
-  puts "------演示redo----"
+  puts "--------for redo-----------"
   c='a'
   for i in 1..4
     if i == 2 and c =='a'
       c = 'b'
-      print "\n"
+      print "redo(",'i:',i,' c:',c,')'
       redo
     end
-    print i,c," "
+    print i,c,"\n"
   end
-  puts "\n\n"
 
 
   puts "------演示retry----"
