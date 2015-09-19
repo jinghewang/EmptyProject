@@ -1,10 +1,20 @@
 class Person
 
+  @@count = 0;
+
+  $global_name = 'hlt'
+
   def initialize(name , age =18)
     @name = name
     @age = age
     @motherland = "China"
     @addr = ""
+
+    @@count += 1
+  end
+
+  def self.instance_count()
+    return @@count
   end
 
   # getter and setter 方式
@@ -26,6 +36,10 @@ class Person
     else
       puts "I am foreigner"
     end
+  end
+
+  def notalk()
+
   end
 
 end
