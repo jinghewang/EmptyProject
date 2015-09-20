@@ -26,5 +26,5 @@ end
 
 p1 = Person.new("wjh")
 p1.talk
-p1.speak
-p1.langh
+# p1.speak
+# p1.langh
