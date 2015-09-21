@@ -1,37 +1,50 @@
-require File.dirname(__FILE__)+'/person.rb'
+$LOAD_PATH.unshift(File.dirname(__FILE__)) unless $LOAD_PATH.include?(File.dirname(__FILE__))
+
+require 'person'
+require 'my_module'
 
 class Student < Person
 
-  def talk
-    super
-    puts "I am student , my name is:" + @name + " and age is:" + @age.to_s()
+  include MyModule
 
+  def useTalk
+    puts talk
   end
 
-  undef notalk
+  def useSpeak
+    puts speak
+  end
+
+  def useLaugh
+    puts laugh
+  end
+
 
 end
 
 # 单例方法
-p3= Student.new("kaichuan",25);
-p = Person.new("wjh")
-p2 = Person.new("wjh2")
-p3.talk
-puts Person.instance_count
-def p.talk()
-  puts 'p----3-3--33--4-4-'
-end
+# student = Student.new("kaichuan");
+# student.useTalk
+# student.useSpeak
+# student.useLaugh
 
-def p.talk2()
-  puts 'p-talk2'
-end
+puts Math::PI,Math.sqrt(2)
+
+# require_rel 'my_module'
+# puts MyModule::APPID,MyModule::talk('wjh')
+
+# include Math
+#puts sqrt(2)
+
+# include MyModule
+# puts sqrt(2)
+
+# 1122
+p1 = Student.new('qq')
+puts p1.sqrt(2)
 
 
-def p2.talk()
-  puts 'p2----3-3--33--4-4-'
-end
-
-
-p.talk
-p.talk2
-p2.talk
+exit
+p2 = Person.new('zz')
+p2.useSpeak(p1)
+# p2.useLaugh(p1)
